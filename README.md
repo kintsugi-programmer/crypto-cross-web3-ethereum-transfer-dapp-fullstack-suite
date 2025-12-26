@@ -110,7 +110,7 @@ This project is a comprehensive Web 3.0 blockchain application that enables user
 ### Frontend
 - **Vite** (v4.0+) - Lightning-fast build tool and dev server
 - **React** (v18+) - UI component library
-- **Tailwind CSS** ~~(v3+)~~ (v4+) - Utility-first CSS framework 
+- **Tailwind CSS** (v3+) ~~(v4+)~~ - Utility-first CSS framework 
 - **React Icons** - Icon components
 - **Ethers.js** (v5.7+) - Ethereum JavaScript library
 
