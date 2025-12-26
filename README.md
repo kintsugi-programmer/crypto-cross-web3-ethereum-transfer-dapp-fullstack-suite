@@ -426,7 +426,21 @@ npm init -y
 npm install --save-dev hardhat @nomiclabs/hardhat-waffle ethereum-waffle chai @nomiclabs/hardhat-ethers ethers
 
 # Initialize Hardhat
-npx hardhat
+npx hardhat --init
+```
+
+* **hardhat**: Development environment for compiling, testing, and deploying smart contracts
+* **@nomiclabs/hardhat-waffle**: Hardhat plugin to use Waffle testing framework with Hardhat
+* **ethereum-waffle**: Smart contract testing framework built on ethers.js
+* **chai**: Assertion library used in tests (e.g., expect, should)
+* **@nomiclabs/hardhat-ethers**: Hardhat plugin that integrates ethers.js with Hardhat runtime
+* **ethers**: JavaScript library for interacting with Ethereum blockchain & smart contracts
+
+> 20 vulnerabilities (1 low, 11 moderate, 5 high, 3 critical): What you’re seeing are warnings, not errors. Your install completed successfully.
+
+> some fix
+```bash
+npm install --save-dev "@nomicfoundation/hardhat-chai-matchers@^2.0.0" "@nomicfoundation/hardhat-ethers@^3.0.0" "@nomicfoundation/hardhat-ignition@^0.15.0" "@nomicfoundation/hardhat-ignition-ethers@^0.15.0" "@nomicfoundation/hardhat-network-helpers@^1.0.0" "@nomicfoundation/hardhat-toolbox@^6.0.0" "@nomicfoundation/hardhat-verify@^2.0.0" "@typechain/ethers-v6@^0.5.0" "@typechain/hardhat@^9.0.0" "hardhat-gas-reporter@^2.3.0" "solidity-coverage@^0.8.0" "typechain@^8.3.0" --legacy-peer-deps
 ```
 
 **Select these options:**
@@ -451,6 +465,8 @@ smart_contract/
 ├── hardhat.config.js
 └── package.json
 ```
+
+> chore(smart_contract): initialize smart contract project with Hardhat and create Lock contract tests & relevant deps
 
 ---
 
