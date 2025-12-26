@@ -262,6 +262,8 @@ VITE v4.x.x  ready in 123 ms
 ➜  Local:   http://localhost:5173/
 ```
 
+> chore(client): Scaffolding Vite React Latest
+
 ### Step 1.3: Install and Configure Tailwind CSS
 
 ```bash
