@@ -692,6 +692,17 @@ export default Navbar;
 
 > feat(client): navbar component
 
+> chore: downgrade dependencies and tooling to legacy versions
+> - React 19 ➝ React 17
+> - Vite 7 ➝ Vite 2
+> - Tailwind 4 ➝ Tailwind 2
+> - Ethers 6 ➝ Ethers 5
+> - Updated eslint config and plugins
+> - Replaced preview script name with serve
+> - Removed TypeScript type packages
+
+![alt text](image-2.png)
+
 ### Step 2.4: Build Welcome Component (Transaction Form)
 
 **`components/Welcome.jsx`:**

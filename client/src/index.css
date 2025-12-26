@@ -1,39 +1,33 @@
-/* Imports the 'Open Sans' font family from Google Fonts with various weights */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
-/* Global reset and box-sizing for consistent layout calculation */
 * html {
   padding: 0;
   margin: 0;
-  box-sizing: border-box; /* Includes padding/border in the element's total width/height */
+  box-sizing: border-box;
 }
 
-/* Base body styles */
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased; /* Smoother font rendering for Chrome/Safari */
-  -moz-osx-font-smoothing: grayscale; /* Smoother font rendering for Firefox */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Background for the Welcome section: Deep dark base with three subtle top-aligned glows */
 .gradient-bg-welcome {
   background-color:#0f0e13;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),   /* Top-left dark glow */
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),  /* Top-center blue glow */
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%); /* Top-right pinkish glow */
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
 }
 
-/* Background for the Services section: Dark base with a centered bottom glow */
 .gradient-bg-services {
   background-color:#0f0e13;
   background-image: 
     radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 100%, hsla(225,39%,25%,1) 0, transparent 50%); /* Bottom-center blue glow */
+    radial-gradient(at 50% 100%, hsla(225,39%,25%,1) 0, transparent 50%);
 }
 
-/* Background for Transactions: Dark base with glows at bottom-left and top-center */
 .gradient-bg-transactions {
   background-color: #0f0e13;
   background-image: 
@@ -41,34 +35,31 @@ body {
     radial-gradient(at 50% 0%, hsla(225,39%,25%,1) 0, transparent 50%);
 }
 
-/* Background for Footer: Dark base with a glow coming from "underneath" the screen */
 .gradient-bg-footer {
   background-color: #0f0e13;
   background-image: 
     radial-gradient(at 0% 100%, hsla(253,16%,7%,1) 0, transparent 53%), 
-    radial-gradient(at 50% 150%, hsla(339,49%,30%,1) 0, transparent 50%); /* Overflowing bottom glow */
+    radial-gradient(at 50% 150%, hsla(339,49%,30%,1) 0, transparent 50%);
 }
 
-/* Blue-tinted frosted glass effect */
 .blue-glassmorphism {
-  background: rgb(39, 51, 89, 0.4); /* Semi-transparent blue */
+  background: rgb(39, 51, 89, 0.4);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Deep shadow for depth */
-  backdrop-filter: blur(5px); /* Blurs content behind the element */
-  -webkit-backdrop-filter: blur(5px); /* Safari support for blur */
-  border: 1px solid rgba(0, 0, 0, 0.3); /* Subtle dark border */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-/* White-tinted frosted glass effect (lighter and more transparent) */
+/* white glassmorphism */
 .white-glassmorphism {
-  background: rgba(255, 255, 255, 0.05); /* Very faint white tint */
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border to catch the light */
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Multi-colored Ethereum-style card background using 7 overlapping radial gradients */
 .eth-card {
   background-color:#a099ff;
   background-image: 
@@ -81,15 +72,13 @@ body {
     radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
 }
 
-/* Masks text so that the background gradient shows through the letters */
 .text-gradient {
   background-color: #fff;
   background-image: radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
-  -webkit-background-clip: text; /* Clips background to text shape */
-  -webkit-text-fill-color: transparent; /* Makes original text color transparent */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Tailwind CSS Directives to inject base styles, components, and utility classes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
