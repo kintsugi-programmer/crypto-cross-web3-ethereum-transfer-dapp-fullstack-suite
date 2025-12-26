@@ -132,49 +132,49 @@ This project is a comprehensive Web 3.0 blockchain application that enables user
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                         Frontend (React)                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │   Navbar     │  │   Welcome    │  │  Services    │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
-│  │Transactions  │  │    Footer    │  │    Loader    │      │
-│  └──────────────┘  └──────────────┘  └──────────────┘      │
+│                         Frontend (React)                    │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
+│  │   Navbar     │  │   Welcome    │  │  Services    │       │
+│  └──────────────┘  └──────────────┘  └──────────────┘       │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
+│  │Transactions  │  │    Footer    │  │    Loader    │       │
+│  └──────────────┘  └──────────────┘  └──────────────┘       │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Context Layer (React Context)              │
-│                  TransactionContext.jsx                      │
-│  - Wallet Connection     - Send Transactions                 │
-│  - Fetch Transactions    - Form State Management             │
+│                   Context Layer (React Context)             │
+│                  TransactionContext.jsx                     │
+│  - Wallet Connection     - Send Transactions                │
+│  - Fetch Transactions    - Form State Management            │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                      Ethers.js Layer                         │
-│  - Web3Provider          - Contract Instance                 │
-│  - Signer                - Transaction Handling              │
+│                      Ethers.js Layer                        │
+│  - Web3Provider          - Contract Instance                │
+│  - Signer                - Transaction Handling             │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                        MetaMask                              │
-│  - Account Management    - Transaction Signing               │
-│  - Network Selection     - Gas Fee Approval                  │
+│                        MetaMask                             │
+│  - Account Management    - Transaction Signing              │
+│  - Network Selection     - Gas Fee Approval                 │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                    Ethereum Network                          │
-│                (Ropsten/Goerli/Mainnet)                      │
+│                    Ethereum Network                         │
+│                (Ropsten/Goerli/Mainnet)                     │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  Smart Contract (Solidity)                   │
-│              Transactions.sol (Deployed)                     │
-│  - addToBlockchain()     - getAllTransactions()              │
-│  - getTransactionCount() - TransferStruct[]                  │
+│                  Smart Contract (Solidity)                  │
+│              Transactions.sol (Deployed)                    │
+│  - addToBlockchain()     - getAllTransactions()             │
+│  - getTransactionCount() - TransferStruct[]                 │
 └─────────────────────────────────────────────────────────────┘
 ```
 
