@@ -376,6 +376,8 @@ export default {
 - Purges unused styles automatically (smaller bundle)
 - Consistent design system with utility classes
 
+> feat(client): Scaffolding tailwind
+
 ### Step 1.4: Initialize Smart Contract Environment
 
 ```bash
