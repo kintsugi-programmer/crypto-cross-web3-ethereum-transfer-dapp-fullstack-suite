@@ -316,60 +316,90 @@ export default {
 
 **Edit `src/index.css`:**
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
-/* Custom gradient classes */
+* html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .gradient-bg-welcome {
-  background: radial-gradient(circle at 50% 0%, rgba(255, 0, 0, 0.5), transparent 80%),
-    radial-gradient(circle at 0% 50%, rgba(255, 0, 150, 0.5), transparent 50%),
-    radial-gradient(circle at 100% 50%, rgba(0, 100, 255, 0.5), transparent 50%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.95));
+  background-color:#0f0e13;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
 }
 
 .gradient-bg-services {
-  background: radial-gradient(circle at 30% 100%, rgba(100, 0, 255, 0.4), transparent 60%),
-    radial-gradient(circle at 70% 20%, rgba(255, 0, 100, 0.4), transparent 60%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+  background-color:#0f0e13;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 100%, hsla(225,39%,25%,1) 0, transparent 50%);
 }
 
 .gradient-bg-transactions {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 150, 255, 0.3), transparent 70%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 1));
+  background-color: #0f0e13;
+  background-image: 
+    radial-gradient(at 0% 100%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,25%,1) 0, transparent 50%);
 }
 
 .gradient-bg-footer {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 1));
+  background-color: #0f0e13;
+  background-image: 
+    radial-gradient(at 0% 100%, hsla(253,16%,7%,1) 0, transparent 53%), 
+    radial-gradient(at 50% 150%, hsla(339,49%,30%,1) 0, transparent 50%);
 }
 
 .blue-glassmorphism {
-  background: rgba(39, 51, 89, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); 
-  /* 'backdrop-filter' is not supported by Safari, Safari on iOS. Add '-webkit-backdrop-filter' to support Safari 9+, Safari on iOS 9+ */
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgb(39, 51, 89, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
+/* white glassmorphism */
 .white-glassmorphism {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px); /*'backdrop-filter' is not supported by Safari, Safari on iOS. Add '-webkit-backdrop-filter' to support Safari 9+, Safari on iOS 9+*/
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .eth-card {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-color:#a099ff;
+  background-image: 
+    radial-gradient(at 83% 67%, rgb(152, 231, 156) 0, transparent 58%), 
+    radial-gradient(at 67% 20%, hsla(357,94%,71%,1) 0, transparent 59%), 
+    radial-gradient(at 88% 35%, hsla(222,81%,65%,1) 0, transparent 50%), 
+    radial-gradient(at 31% 91%, hsla(9,61%,61%,1) 0, transparent 52%), 
+    radial-gradient(at 27% 71%, hsla(336,91%,65%,1) 0, transparent 49%), 
+    radial-gradient(at 74% 89%, hsla(30,98%,65%,1) 0, transparent 51%), 
+    radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
 }
 
 .text-gradient {
-  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  background-color: #fff;
+  background-image: radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 **Why Tailwind?**
@@ -493,6 +523,9 @@ touch components/Loader.jsx
 touch components/index.js
 ```
 
+> install vsc extension https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets
+> at each component do `rafce` and use generated boilerplate
+
 **`components/index.js` (Barrel export):**
 ```javascript
 export { default as Navbar } from './Navbar';
@@ -513,7 +546,7 @@ export { default as Loader } from './Loader';
 ```javascript
 import { Navbar, Welcome, Services, Transactions, Footer } from './components';
 
-function App() {
+const App = () => {
   return (
     <div className="min-h-screen">
       <div className="gradient-bg-welcome">
@@ -534,6 +567,18 @@ export default App;
 - `gradient-bg-welcome` wraps Navbar + Welcome for unified background
 - Each section is a separate component for modularity
 - Tailwind's `min-h-screen` ensures full viewport height
+
+> clear `App.css`
+
+![alt text](image-1.png)
+
+> feat(client): add initial React component structure and main App layout for Phase 2
+> - created components folder structure
+> - added Navbar, Welcome, Services, Transactions, Footer, Loader components
+> - added barrel exports in components/index.js
+> - implemented main App.jsx layout with gradient welcome section
+> - prepared project for further UI development
+ 
 
 ### Step 2.3: Build Navbar Component
 

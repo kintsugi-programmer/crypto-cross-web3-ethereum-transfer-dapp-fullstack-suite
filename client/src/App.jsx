@@ -2,6 +2,8 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
+import { Navbar, Welcome, Services, Transactions, Footer } from './components';
+
 
 // function App() {
 // //  const [count, setCount] = useState(0)
@@ -15,13 +17,28 @@ import './App.css'
 // }
 
 // new App function ARROW function
+// const App = () => {
+//   return (
+//     <div className="App">
+//       <h1>CryptoCross</h1>
+//       Your Favourite Crypto Transfer Dapp !!!
+//     </div>
+//   )
+// }
+
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>CryptoCross</h1>
-      Your Favourite Crypto Transfer Dapp !!!
+    <div className="min-h-screen">
+      <div className="gradient-bg-welcome">
+        <Navbar />
+        <Welcome />
+      </div>
+      <Services />
+      <Transactions />
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
