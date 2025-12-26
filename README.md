@@ -258,7 +258,7 @@ npm run dev
 **What happens here:**
 - Vite creates a minimal React project (faster than Create React App)
 - Installs React, ReactDOM, and Vite tooling
-- `ethers` - For blockchain interaction
+- `ethers` - For blockchain & our smart contract interaction
 - `react-icons` - For UI icons
 
 **Expected Output:**
@@ -284,68 +284,78 @@ npx tailwindcss init -p # leave it
 
 **Edit `tailwind.config.js`: leave it**
 ```javascript
-/** @type {import('tailwindcss').Config} */
+/** @type {import('tailwindcss').Config} */ // Provides TypeScript Intellisense/typings for the config object
 export default {
+  // Specifies the paths to all of your template files (HTML, JS, TS, etc.)
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./index.html", // Scans the root HTML file for Tailwind classes
+    "./src/**/*.{js,ts,jsx,tsx}", // Scans all files in the src folder with these extensions
   ],
   theme: {
+    // 'extend' allows you to add new styles without overriding the default Tailwind theme
     extend: {
       screens: {
-        mf: "990px", // Custom breakpoint for "medium-full"
+        mf: "990px", // Defines a custom responsive breakpoint at 990 pixels
       },
       keyframes: {
+        // Defines the raw CSS keyframes for a custom animation
         "slide-in": {
           "0%": {
-            transform: "translateX(120%)",
+            transform: "translateX(120%)", // Starts the element off-screen to the right
           },
           "100%": {
-            transform: "translateX(0%)",
+            transform: "translateX(0%)", // Ends the element at its natural position
           },
         },
       },
       animation: {
-        "slide-in": "slide-in 0.5s ease-out",
+        // Links the keyframes above to a usable utility class: 'animate-slide-in'
+        "slide-in": "slide-in 0.5s ease-out", // Sets duration to 0.5s with a smooth exit
       },
     },
   },
-  plugins: [],
+  plugins: [], // Used to register third-party plugins (like forms or typography)
 }
 ```
 
-**Edit `src/index.css`:**
+**Edit `src/index.css`: (custom css)**
 ```css
+/* Imports the 'Open Sans' font family from Google Fonts with various weights */
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
+/* Global reset and box-sizing for consistent layout calculation */
 * html {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Includes padding/border in the element's total width/height */
 }
 
+/* Base body styles */
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; /* Smoother font rendering for Chrome/Safari */
+  -moz-osx-font-smoothing: grayscale; /* Smoother font rendering for Firefox */
 }
 
+/* Background for the Welcome section: Deep dark base with three subtle top-aligned glows */
 .gradient-bg-welcome {
   background-color:#0f0e13;
   background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%),   /* Top-left dark glow */
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%),  /* Top-center blue glow */
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%); /* Top-right pinkish glow */
 }
 
+/* Background for the Services section: Dark base with a centered bottom glow */
 .gradient-bg-services {
   background-color:#0f0e13;
   background-image: 
     radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 100%, hsla(225,39%,25%,1) 0, transparent 50%);
+    radial-gradient(at 50% 100%, hsla(225,39%,25%,1) 0, transparent 50%); /* Bottom-center blue glow */
 }
 
+/* Background for Transactions: Dark base with glows at bottom-left and top-center */
 .gradient-bg-transactions {
   background-color: #0f0e13;
   background-image: 
@@ -353,31 +363,34 @@ body {
     radial-gradient(at 50% 0%, hsla(225,39%,25%,1) 0, transparent 50%);
 }
 
+/* Background for Footer: Dark base with a glow coming from "underneath" the screen */
 .gradient-bg-footer {
   background-color: #0f0e13;
   background-image: 
     radial-gradient(at 0% 100%, hsla(253,16%,7%,1) 0, transparent 53%), 
-    radial-gradient(at 50% 150%, hsla(339,49%,30%,1) 0, transparent 50%);
+    radial-gradient(at 50% 150%, hsla(339,49%,30%,1) 0, transparent 50%); /* Overflowing bottom glow */
 }
 
+/* Blue-tinted frosted glass effect */
 .blue-glassmorphism {
-  background: rgb(39, 51, 89, 0.4);
+  background: rgb(39, 51, 89, 0.4); /* Semi-transparent blue */
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Deep shadow for depth */
+  backdrop-filter: blur(5px); /* Blurs content behind the element */
+  -webkit-backdrop-filter: blur(5px); /* Safari support for blur */
+  border: 1px solid rgba(0, 0, 0, 0.3); /* Subtle dark border */
 }
 
-/* white glassmorphism */
+/* White-tinted frosted glass effect (lighter and more transparent) */
 .white-glassmorphism {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05); /* Very faint white tint */
   border-radius: 16px;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Lighter border to catch the light */
 }
 
+/* Multi-colored Ethereum-style card background using 7 overlapping radial gradients */
 .eth-card {
   background-color:#a099ff;
   background-image: 
@@ -390,13 +403,15 @@ body {
     radial-gradient(at 53% 75%, hsla(174,94%,68%,1) 0, transparent 45%);
 }
 
+/* Masks text so that the background gradient shows through the letters */
 .text-gradient {
   background-color: #fff;
   background-image: radial-gradient(at 4% 36%, hsla(0,0%,100%,1) 0, transparent 53%), radial-gradient(at 100% 60%, rgb(0, 0, 0) 0, transparent 50%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; /* Clips background to text shape */
+  -webkit-text-fill-color: transparent; /* Makes original text color transparent */
 }
 
+/* Tailwind CSS Directives to inject base styles, components, and utility classes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -582,63 +597,83 @@ export default App;
 
 ### Step 2.3: Build Navbar Component
 
+```bash
+npm install react-icons --save
+```
+
 **`components/Navbar.jsx`:**
 ```javascript
-import { useState } from 'react';
-import { HiMenuAlt4 } from 'react-icons/hi';
-import { AiOutlineClose } from 'react-icons/ai';
-import logo from '../images/logo.png';
+import React from "react";
+// Importing specific icons from the 'react-icons' library
+import { HiMenuAlt4 } from "react-icons/hi"; // Hamburger menu icon
+import { AiOutlineClose } from "react-icons/ai"; // Close/X icon
 
-const NavbarItem = ({ title, classProps }) => (
-  <li className={`mx-4 cursor-pointer ${classProps}`}>{title}</li>
+// Importing the logo image asset
+import logo from "../../images/logo.png";
+
+// A reusable sub-component for individual navigation links
+const NavBarItem = ({ title, classprops }) => (
+  // Uses template literals to combine default styles with custom classes passed via props
+  <li className={`mx-4 cursor-pointer ${classprops}`}>{title}</li>
 );
 
 const Navbar = () => {
-  const [toggleMenu, setToggleMenu] = useState(false);
+  // State hook to track whether the mobile menu is open (true) or closed (false)
+  const [toggleMenu, setToggleMenu] = React.useState(false);
 
   return (
+    // 'w-full' makes the nav span the whole width; 'md:justify-center' centers items on desktop
     <nav className="w-full flex md:justify-center justify-between items-center p-4">
-      {/* Logo */}
+      {/* Left side: Logo and Brand Name container */}
       <div className="md:flex-[0.5] flex-initial justify-center items-center">
-        <img src={logo} alt="logo" className="w-32 cursor-pointer" />
+        <div className="flex">
+          <img src={logo} alt="logo" className="w-24 cursor-pointer" />
+          <h1 className="text-3xl text-white py-1">
+            <span className="font-bold">CyptoCross</span><br /> 
+            <div className="text-xl">Send Crypto across the world</div>
+          </h1>
+        </div>
       </div>
 
-      {/* Desktop Menu */}
+      {/* Desktop Navigation: Hidden on mobile ('hidden'), flexbox on medium screens and up ('md:flex') */}
       <ul className="text-white md:flex hidden list-none flex-row justify-between items-center flex-initial">
-        {['Market', 'Exchange', 'Tutorials', 'Wallets'].map((item, index) => (
-          <NavbarItem key={item + index} title={item} />
+        {/* Mapping through an array to dynamically generate Nav Items */}
+        {["Market", "Exchange", "Tutorials", "Wallets"].map((item, index) => (
+          <NavBarItem key={item + index} title={item} />
         ))}
+        {/* Styled Login Button */}
         <li className="bg-[#2952e3] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#2546bd]">
           Login
         </li>
       </ul>
 
-      {/* Mobile Menu Icon */}
+      {/* Mobile Menu logic: Uses 'relative' positioning for the menu icon */}
       <div className="flex relative">
-        {toggleMenu ? (
-          <AiOutlineClose
-            fontSize={28}
-            className="text-white md:hidden cursor-pointer"
-            onClick={() => setToggleMenu(false)}
-          />
-        ) : (
-          <HiMenuAlt4
-            fontSize={28}
-            className="text-white md:hidden cursor-pointer"
-            onClick={() => setToggleMenu(true)}
-          />
+        {/* If toggleMenu is false, show the Hamburger icon */}
+        {!toggleMenu && (
+          <HiMenuAlt4 fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(true)} />
         )}
-
-        {/* Mobile Menu Dropdown */}
+        {/* If toggleMenu is true, show the Close icon */}
         {toggleMenu && (
-          <ul className="z-10 fixed top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
-            flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in">
+          <AiOutlineClose fontSize={28} className="text-white md:hidden cursor-pointer" onClick={() => setToggleMenu(false)} />
+        )}
+        {/* The Mobile Sidebar Overlay */}
+        {toggleMenu && (
+          <ul
+            // 'fixed' takes it out of document flow; 'w-[70vw]' makes it cover 70% of screen width
+            // 'blue-glassmorphism' applies the custom CSS glass effect from your stylesheet
+            // 'animate-slide-in' triggers the Tailwind animation we configured earlier
+            className="z-10 fixed -top-0 -right-2 p-3 w-[70vw] h-screen shadow-2xl md:hidden list-none
+            flex flex-col justify-start items-end rounded-md blue-glassmorphism text-white animate-slide-in"
+          >
+            {/* Close button inside the sidebar */}
             <li className="text-xl w-full my-2">
               <AiOutlineClose onClick={() => setToggleMenu(false)} />
             </li>
-            {['Market', 'Exchange', 'Tutorials', 'Wallets'].map((item, index) => (
-              <NavbarItem key={item + index} title={item} classProps="my-2 text-lg" />
-            ))}
+            {/* Repeating the map for mobile links with larger text and vertical spacing */}
+            {["Market", "Exchange", "Tutorials", "Wallets"].map(
+              (item, index) => <NavBarItem key={item + index} title={item} classprops="my-2 text-lg" />,
+            )}
           </ul>
         )}
       </div>
@@ -654,6 +689,8 @@ export default Navbar;
 - **Glassmorphism**: Semi-transparent mobile menu with blur effect
 - **State management**: `toggleMenu` controls mobile menu visibility
 - **Animation**: `animate-slide-in` custom Tailwind animation
+
+> feat(client): navbar component
 
 ### Step 2.4: Build Welcome Component (Transaction Form)
 
