@@ -109,7 +109,7 @@ This project is a comprehensive Web 3.0 blockchain application that enables user
 ### Frontend
 - **Vite** (v4.0+) - Lightning-fast build tool and dev server
 - **React** (v18+) - UI component library
-- **Tailwind CSS** (v3+) - Utility-first CSS framework
+- **Tailwind CSS** ~~(v3+)~~ (v4+) - Utility-first CSS framework 
 - **React Icons** - Icon components
 - **Ethers.js** (v5.7+) - Ethereum JavaScript library
 
@@ -271,13 +271,17 @@ VITE v4.x.x  ready in 123 ms
 
 ```bash
 # Still in client folder
-npm install -D tailwindcss postcss autoprefixer
+npm install tailwindcss @tailwindcss/vite # leave it
+npm install -D postcss autoprefixer # leave it
+npm install tailwindcss @tailwindcss/vite
 
 # Generate config files
-npx tailwindcss init -p
+npx tailwindcss init -p # leave it
 ```
 
-**Edit `tailwind.config.js`:**
+> Tailwind v4 is config-optional. You do NOT need: `tailwind.config.js`,`postcss.config.js`,`tailwindcss init -p` !!!
+
+**Edit `tailwind.config.js`: leave it**
 ```javascript
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -341,13 +345,16 @@ export default {
 .blue-glassmorphism {
   background: rgba(39, 51, 89, 0.4);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); 
+  /* 'backdrop-filter' is not supported by Safari, Safari on iOS. Add '-webkit-backdrop-filter' to support Safari 9+, Safari on iOS 9+ */
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .white-glassmorphism {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px); /*'backdrop-filter' is not supported by Safari, Safari on iOS. Add '-webkit-backdrop-filter' to support Safari 9+, Safari on iOS 9+*/
+  -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
