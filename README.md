@@ -34,6 +34,7 @@
     - [Step 1.1: Create Project Structure](#step-11-create-project-structure)
     - [Step 1.2: Initialize Frontend with Vite](#step-12-initialize-frontend-with-vite)
     - [Step 1.3: Install and Configure Tailwind CSS](#step-13-install-and-configure-tailwind-css)
+    - [Step: init App.jsx as Arrow Function.](#step-init-appjsx-as-arrow-function)
     - [Step 1.4: Initialize Smart Contract Environment](#step-14-initialize-smart-contract-environment)
   - [🎨 Phase 2: Frontend Development](#-phase-2-frontend-development)
     - [Step 2.1: Create Component Structure](#step-21-create-component-structure)
@@ -377,6 +378,40 @@ export default {
 - Consistent design system with utility classes
 
 > feat(client): Scaffolding tailwind
+
+### Step: init App.jsx as Arrow Function.
+
+```jsx
+// import { useState } from 'react'
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
+import './App.css'
+
+// function App() {
+// //  const [count, setCount] = useState(0)
+
+//   return (
+//     <>
+//       <div>
+//       </div>
+//     </>
+//   )
+// }
+
+// new App function ARROW function
+const App = () => {
+  return (
+    <div className="App">
+      <h1>CryptoCross</h1>
+      Your Favourite Crypto Transfer Dapp !!!
+    </div>
+  )
+}
+
+export default App
+```
+
+> chore(client): init App.jsx as Arrow Function.
 
 ### Step 1.4: Initialize Smart Contract Environment
 
