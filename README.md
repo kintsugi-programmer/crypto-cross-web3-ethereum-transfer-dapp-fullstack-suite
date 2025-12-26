@@ -692,7 +692,7 @@ export default Navbar;
 
 > feat(client): navbar component
 
-> chore: downgrade dependencies and tooling to legacy versions
+> chore(client): downgrade dependencies and tooling to legacy versions
 > - React 19 ➝ React 17
 > - Vite 7 ➝ Vite 2
 > - Tailwind 4 ➝ Tailwind 2
