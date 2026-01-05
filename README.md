@@ -1822,9 +1822,10 @@ MIT License - feel free to use this project for learning and development.
 
 ---
 
-## 🙏 Acknowledgments
+## Resources
 
-- **JavaScript Mastery** - Original tutorial
+- https://www.youtube.com/watch?v=Wn_Kb3MR_cU
+- **JavaScript Mastery** - Original tutorial 
 - **Ethereum Foundation** - Blockchain platform
 - **MetaMask** - Wallet provider
 - **Alchemy** - Node infrastructure
